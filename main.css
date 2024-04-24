@@ -1,0 +1,143 @@
+:root {
+  --cl-black: #121212;
+  --cl-white: #ffffffcc;
+  --cl-red: #991b1f;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cl-black);
+  color: var(--cl-white);
+}
+
+.box {
+  max-width: calc(1200px + 30px);
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 15px;
+}
+
+.c-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+#hero > img {
+  z-index: -2;
+}
+
+.section-title {
+  position: relative;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  padding-left: 60px;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 48px;
+  height: 2px;
+  background-color: var(--cl-red);
+}
+
+.c-card {
+  position: relative;
+  width: 100%;
+  background-color: var(--cl-black);
+  padding: 20px;
+  color: var(--cl-white);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.c-card::after {
+  content: "";
+  position: absolute;
+  bottom: -8%;
+  right: -2%;
+  background-image: url("./images/logo.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 120px;
+  height: 120px;
+  z-index: -1;
+}
+
+.c-card p {
+  max-width: 400px;
+}
+
+@media (max-width: 580px) {
+  #hero {
+    height: auto;
+  }
+  #hero > div {
+    min-height: 750px;
+  }
+  .section-title {
+    font-size: 22px;
+    line-height: 24px;
+    padding-left: 40px;
+  }
+  .section-title::before {
+    width: 32px;
+  }
+  .c-card {
+    gap: 24px;
+    padding: 16px;
+  }
+  .c-card h5 {
+    font-size: 16px;
+    line-height: 20px;
+    max-width: 240px;
+  }
+  .c-card p,
+  footer p,
+  footer a {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .c-card::after {
+    width: 60px;
+    height: 60px;
+    bottom: auto;
+    right: auto;
+    top: 0;
+    right: 0;
+  }
+}
